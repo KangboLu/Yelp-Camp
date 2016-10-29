@@ -10,7 +10,7 @@ Each Campground has:
    * Image
 
 ##Layout and Basic Styling
-* Create our header and footer partials
+* Create header and footer partials
 * Add in Bootstrap
 
 ##Creating New Campgrounds
@@ -30,11 +30,11 @@ Each Campground has:
 ##Add Mongoose
 * Install and configure Mongoose
 * Setup campground model
-* Use campground model inside of our routes
+* Use campground model inside of routes
 
 ##Show Page
 * Review the RESTful routes we've seen so far
-* Add description to our campground model
+* Add description to the campground model
 * Show db.collection.drop()
 * Add a show route/template
 
@@ -48,7 +48,7 @@ Each Campground has:
 * Run the seeds file every time the server starts
 
 ##Add the Comment model!
-* Make our errors go away!
+* Make comment errors go away!
 * Display comments on campground show page
 
 ##Comment New/Create
