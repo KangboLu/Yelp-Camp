@@ -8,13 +8,14 @@ var seedDB = require("./seeds");
 var Comment = require("./models/comment");
 
 // seedBD for testing
-seedDB();
+// seedDB();
 // set up the mongodb
-mongoose.connect("mongodb://localhost:/yelp_camp_v4");
+mongoose.connect("mongodb://localhost:/yelp_camp_v5");
 // set up body-parser
 app.use(bodyParser.urlencoded({extended: true}));
 // set up the ejs view engine
 app.set("view engine", "ejs");
+app.use(express.static(__dirname + "/public"));
 
 
 

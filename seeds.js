@@ -3,9 +3,22 @@ var Campground = require("./models/campground");
 var Comment = require("./models/comment");
 
 var data = [
-        {name: "Salmon Creek", image: "https://farm9.staticflickr.com/8442/7962474612_bf2baf67c0.jpg", description: "AAA"},
-        {name: "Granite Hill", image: "https://farm1.staticflickr.com/60/215827008_6489cd30c3.jpg", description: "BBB"},
-        {name: "Mountain Goat's Rest", image: "https://farm7.staticflickr.com/6057/6234565071_4d20668bbd.jpg", description: "CCC"}
+        {
+            name: "Salmon Creek",
+            image: "https://farm9.staticflickr.com/8442/7962474612_bf2baf67c0.jpg", 
+            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
+        },
+        {
+            name: "Granite Hill", 
+            image: "https://farm1.staticflickr.com/60/215827008_6489cd30c3.jpg",
+            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
+            
+        },
+        {
+            name: "Mountain Goat's Rest", 
+            image: "https://farm7.staticflickr.com/6057/6234565071_4d20668bbd.jpg", 
+            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
+        }
     ];
 
 function seedDB() {
