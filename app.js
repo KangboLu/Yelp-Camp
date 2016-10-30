@@ -16,7 +16,7 @@ var commentRoutes    = require("./routes/comments"),
     indexRoutes      = require('./routes/index');
     
 // set up the mongodb
-mongoose.connect("mongodb://localhost:/7");
+mongoose.connect("mongodb://localhost:/9");
 // set up body-parser
 app.use(bodyParser.urlencoded({extended: true}));
 // set up the ejs view engine
