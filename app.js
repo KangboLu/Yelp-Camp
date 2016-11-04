@@ -1,14 +1,15 @@
 // import packages
-var express       = require("express"),
-    app           = express(),
-    bodyParser    = require("body-parser"),
-    mongoose      = require("mongoose"),
-    passport      = require("passport"),
-    LocalStrategy = require("passport-local"),
-    Campground    = require("./models/campground"),
-    Comment       = require("./models/comment"),
-    User          = require("./models/user"),
-    seedDB        = require("./seeds");
+var express        = require("express"),
+    app            = express(),
+    bodyParser     = require("body-parser"),
+    mongoose       = require("mongoose"),
+    passport       = require("passport"),
+    LocalStrategy  = require("passport-local"),
+    methodOverride = require("method-override"),
+    Campground     = require("./models/campground"),
+    Comment        = require("./models/comment"),
+    User           = require("./models/user"),
+    seedDB         = require("./seeds");
 
 // requiring routes
 var commentRoutes    = require("./routes/comments"),
@@ -16,12 +17,14 @@ var commentRoutes    = require("./routes/comments"),
     indexRoutes      = require('./routes/index');
     
 // set up the mongodb
-mongoose.connect("mongodb://localhost:/9");
+mongoose.connect("mongodb://localhost:/10");
 // set up body-parser
 app.use(bodyParser.urlencoded({extended: true}));
 // set up the ejs view engine
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
+// set up method override
+app.use(methodOverride("_method"));
 
 // seedBD for testing
 // seedDB();

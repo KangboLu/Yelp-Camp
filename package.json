@@ -13,6 +13,7 @@
     "ejs": "^2.5.1",
     "express": "^4.14.0",
     "express-session": "^1.14.1",
+    "method-override": "^2.3.6",
     "mongoose": "^4.5.10",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
