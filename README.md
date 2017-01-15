@@ -131,3 +131,8 @@ Comment Destroy Route:    /campgrounds/:id/comments/:comment_id
 * User can only delete his/her comments
 * Hide/Show edit and delete buttons
 * Refactor Middleware to a single file
+
+#Adding in Flash!
+* Demo working version
+* Install and configure connect-flash
+* Add bootstrap alerts to header
