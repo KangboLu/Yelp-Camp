@@ -2,7 +2,6 @@
 var Campground = require("../models/campground");    
 var Comment    = require("../models/comment");
 
-
 // declare a empty middleware object
 var middlewareObj = {};
 
@@ -10,6 +9,9 @@ var middlewareObj = {};
 middlewareObj.isLoggedIn = function (req, res, next) {
     if (req.isAuthenticated())
         return next();
+    
+    // send flash message for the next request if error
+    req.flash("error", "You need to be logged in to do that!");
     res.redirect("/login");
 }
 
@@ -20,17 +22,21 @@ middlewareObj.checkCampgroundOwnership = function (req, res, next) {
         // find the campground with the requested id
         Campground.findById(req.params.id, function (err, foundCampground) {
             if (err) {
+                req.flash("error", "Campground not found!");
                 res.redriect("back");
             } else {
                 // does the user own the campground?
                 if (foundCampground.author.id.equals(req.user._id)) {
                     next();
                 } else {
+                    req.flash("error", "You don't have permission to do that!");
                     res.redirect("back");
                 }
             }
         });
     } else {
+        // send flash notification to user to log in first
+        req.flash("error", "You need to be logged in to do that!");
         res.redirect("back");
     }
 }
@@ -48,11 +54,14 @@ middlewareObj.checkCommentOwnership = function (req, res, next) {
                 if (foundComment.author.id.equals(req.user._id)) {
                     next();
                 } else {
+                    req.flash("error", "You don't have permission to do that!");
                     res.redirect("back");
                 }
             }
         });
     } else {
+        // send flash notification to user to log in first
+        req.flash("error", "You don't have permission to do that!");
         res.redirect("back");
     }
 }

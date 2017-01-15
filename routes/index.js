@@ -20,11 +20,14 @@ router// register an user from given request body
     User.register(newUser, req.body.password, function (err, user) {
         // callback details
         if (err) {
-           console.log(err);
+            // display flash error message from the database
+           req.flash("error", err.message);
            return res.render("register");
        }
         // authenticate the given user
         passport.authenticate("local")(req, res, function () {
+            // display the welcome flash notification and redirect
+            req.flash("success", "Welcome to YelpCamp " + user.username);
             res.redirect("/campgrounds");
         });
     });
@@ -46,15 +49,9 @@ router.post("/login", passport.authenticate("local",
 // log out route
 router.get("/logout", function(req, res) {
    req.logout();
+   req.flash("success", "Logged you out!"); // handle logout flash msg
    res.redirect("/campgrounds");
 });
-
-// middleware to check if the user is logged in
-function isLoggedIn(req, res, next) {
-    if (req.isAuthenticated())
-        return next();
-    res.redirect("/login");
-}
 
 // export the router module
 module.exports = router;

@@ -93,5 +93,5 @@ router.delete("/:id", middleware.checkCampgroundOwnership, function(req, res) {
     });
 });
 
-// express the router module
+// export the router module
 module.exports = router;

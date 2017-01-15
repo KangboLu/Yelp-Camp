@@ -3,6 +3,7 @@ var express        = require("express"),
     app            = express(),
     bodyParser     = require("body-parser"),
     mongoose       = require("mongoose"),
+    flash          = require("connect-flash"),
     passport       = require("passport"),
     LocalStrategy  = require("passport-local"),
     methodOverride = require("method-override"),
@@ -25,6 +26,8 @@ app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 // set up method override
 app.use(methodOverride("_method"));
+// set up connect-flash
+app.use(flash());
 
 // seedBD for testing
 // seedDB();
@@ -41,9 +44,11 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-// middleware for currentUser
+// middleware to create globle varible for currentUser
 app.use(function (req, res, next) {
     res.locals.currentUser = req.user;
+    res.locals.error = req.flash("error");
+    res.locals.success = req.flash("success");
     next();
 });
 
