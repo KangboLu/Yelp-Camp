@@ -136,3 +136,8 @@ Comment Destroy Route:    /campgrounds/:id/comments/:comment_id
 * Demo working version
 * Install and configure connect-flash
 * Add bootstrap alerts to header
+
+#Adding dynamic price tag
+* Show user-defined price
+* Edit new or old price
+* Change model for campground
