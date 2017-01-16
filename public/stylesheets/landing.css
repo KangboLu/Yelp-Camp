@@ -10,7 +10,9 @@ body {
 }
 
 #landing-header h1 {
+  font-size: 450%;
   color: #fff;
+  margin-bottom: 20px;
 }
 
 .slideshow { 
